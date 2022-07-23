@@ -1,0 +1,41 @@
+﻿@page "/"
+@using System.ComponentModel.DataAnnotations;
+@using ODBlazor.Models;
+@inject IJSRuntime JSRun;
+
+
+<PageTitle>Verify your Age</PageTitle>
+
+<EditForm Model="@DoBInstance" >
+
+    <input type="date" id="DoB" name = "DoB" @bind="@BirthDate"/>
+
+    <input type="submit" @onclick="checkAge">Confirm</input>
+
+</EditForm>
+
+@code {
+
+    DateOnly BirthDate;
+
+    DoBModel DoBInstance = new();
+
+    private async Task checkAge()
+    {
+        Console.WriteLine(BirthDate.ToString());
+
+        JSRun.InvokeVoidAsync("sessionStorage.setItem", "BirthDate", BirthDate);
+        var AgeOutput = await JSRun.InvokeAsync<string>("sessionStorage.getItem", "BirthDate");
+
+        Console.WriteLine(AgeOutput);
+
+        if ( DateTime.Now.Year - BirthDate.Year <= 17 )
+        {
+            // Too young for this content.
+        }
+        else
+        {
+            
+        }
+    }
+}

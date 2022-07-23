@@ -1,0 +1,18 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:60530/",
+      "sslPort": 44385
+    }
+  },
+  "profiles": {
+    "ODBlazor": {
+      "commandName": "Project"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress"
+    }
+  }
+}

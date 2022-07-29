@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hunter\\source\\repos\\ODBlazor\\ODBlazor\\ODBlazor.csproj",
+      "projectUniqueName": "C:\\Users\\Hunter\\source\\repos\\ODBlazor\\ODBlazorGit\\ODBlazor\\ODBlazor\\ODBlazor.csproj",
       "projectName": "ODBlazor",
-      "projectPath": "C:\\Users\\Hunter\\source\\repos\\ODBlazor\\ODBlazor\\ODBlazor.csproj",
+      "projectPath": "C:\\Users\\Hunter\\source\\repos\\ODBlazor\\ODBlazorGit\\ODBlazor\\ODBlazor\\ODBlazor.csproj",
       "packagesPath": "C:\\Users\\Hunter\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hunter\\source\\repos\\ODBlazor\\ODBlazor\\obj\\",
+      "outputPath": "C:\\Users\\Hunter\\source\\repos\\ODBlazor\\ODBlazorGit\\ODBlazor\\ODBlazor\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

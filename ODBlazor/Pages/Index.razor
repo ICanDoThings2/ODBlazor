@@ -2,11 +2,15 @@
 @using System.ComponentModel.DataAnnotations;
 @using ODBlazor.Models;
 @inject IJSRuntime JSRun;
-
+@inject NavigationManager NavigationManager
 
 <PageTitle>Verify your Age</PageTitle>
 
+<div id="AgeSelect">
+
 <EditForm Model="@DoBInstance" >
+
+    <label for="DoB">Verify your Age</label>
 
     <input type="date" id="DoB" name = "DoB" @bind="@BirthDate"/>
 
@@ -14,24 +18,97 @@
 
 </EditForm>
 
+</div>
+
 @code {
+
+
 
     DateOnly BirthDate;
 
     DoBModel DoBInstance = new();
 
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+
+        if ( firstRender )
+        {
+            ofAge();
+        }
+    }
+
+    /*
+    * Gets a date string and returns it as a year, this assumes the format of month/day/year.
+     */
+
+    public int StringAsYears(string forAgeStr)
+    {
+        int days = 0, months = 0, years = 0;
+
+        int indexStart = 0;
+
+        for ( int d = 0; d < forAgeStr.Length; d++ )
+        {
+
+            if ( forAgeStr[d] == '/' ) // Since they're seperated by this, this means the next pair or single digit is the month/date.
+            {
+
+                if ( months == 0 )
+                {
+                    months = Int32.Parse(forAgeStr.Substring(indexStart, d - indexStart ));
+                    indexStart = d + 1;
+                    continue;
+                }
+
+                if ( days == 0 )
+                {
+                    days = Int32.Parse(forAgeStr.Substring(indexStart, d - indexStart));
+                    indexStart = d + 1;
+                    continue;
+                }
+
+            }
+        }
+
+        years = Int32.Parse(forAgeStr.Substring( forAgeStr.Length - 4, 4)); // Years is always the last 4 digits from my observations, no need to loop.
+        return years;
+    }
+
+    private async Task ofAge() // Checks if they're 18 or older.
+    {
+        var AgeOutput = await JSRun.InvokeAsync<string>("localStorage.getItem", "BirthDate");
+
+        if ( AgeOutput == null )
+        {
+            Console.WriteLine("Age Not Saved!");
+            // The age is not in memory.
+        }
+
+
+        if ( StringAsYears(AgeOutput) >= 18 )
+        {
+            // They're old enough.
+            LoadSummaryPage();
+        }
+    }
+
+    public void LoadSummaryPage()
+    {
+        NavigationManager.NavigateTo("/summary", false);
+
+    }
+
     private async Task checkAge()
     {
         Console.WriteLine(BirthDate.ToString());
 
-        JSRun.InvokeVoidAsync("sessionStorage.setItem", "BirthDate", BirthDate);
-        var AgeOutput = await JSRun.InvokeAsync<string>("sessionStorage.getItem", "BirthDate");
-
-        Console.WriteLine(AgeOutput);
+        JSRun.InvokeVoidAsync("localStorage.setItem", "BirthDate", BirthDate.ToString());
 
         if ( DateTime.Now.Year - BirthDate.Year <= 17 )
         {
             // Too young for this content.
+
         }
         else
         {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hunter\\source\\repos\\ODNetBackEnd\\ODNetBackEnd\\ODNetBackEnd.csproj": {}
+    "C:\\Users\\Hunter\\source\\repos\\ODBlazor\\ODBlazorGit\\ODBlazor\\ODNetBackEnd\\ODNetBackEnd.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hunter\\source\\repos\\ODNetBackEnd\\ODNetBackEnd\\ODNetBackEnd.csproj": {
+    "C:\\Users\\Hunter\\source\\repos\\ODBlazor\\ODBlazorGit\\ODBlazor\\ODNetBackEnd\\ODNetBackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hunter\\source\\repos\\ODNetBackEnd\\ODNetBackEnd\\ODNetBackEnd.csproj",
+        "projectUniqueName": "C:\\Users\\Hunter\\source\\repos\\ODBlazor\\ODBlazorGit\\ODBlazor\\ODNetBackEnd\\ODNetBackEnd.csproj",
         "projectName": "ODNetBackEnd",
-        "projectPath": "C:\\Users\\Hunter\\source\\repos\\ODNetBackEnd\\ODNetBackEnd\\ODNetBackEnd.csproj",
+        "projectPath": "C:\\Users\\Hunter\\source\\repos\\ODBlazor\\ODBlazorGit\\ODBlazor\\ODNetBackEnd\\ODNetBackEnd.csproj",
         "packagesPath": "C:\\Users\\Hunter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hunter\\source\\repos\\ODNetBackEnd\\ODNetBackEnd\\obj\\",
+        "outputPath": "C:\\Users\\Hunter\\source\\repos\\ODBlazor\\ODBlazorGit\\ODBlazor\\ODNetBackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
